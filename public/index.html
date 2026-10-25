@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6f4e37">
+    <meta name="description" content="Настраиваемый генератор надёжных паролей. Работает как устанавливаемое PWA-приложение.">
+    <title>Генератор паролей | ЛР №6</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div>
+                <p class="eyebrow">Лабораторная работа №6 · Вариант 10</p>
+                <h1>Генератор паролей</h1>
+                <p class="header-description">Создавай пароли нужной длины — просто и безопасно.</p>
+            </div>
+            <button type="button" id="themeToggle" class="button button-secondary theme-button">Тёмная тема</button>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Основная навигация">
+        <a class="active" href="/">Генератор</a>
+        <a href="/about">О работе</a>
+    </nav>
+
+    <main class="page-content">
+        <section class="generator-card" aria-labelledby="generator-title">
+            <div class="section-heading">
+                <p class="eyebrow">Настройки</p>
+                <h2 id="generator-title">Настрой свой пароль</h2>
+                <p>Укажи длину и выбери, нужно ли добавлять специальные символы.</p>
+            </div>
+
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label for="length">Длина пароля</label>
+                    <div class="length-row">
+                        <input type="range" id="lengthRange" min="1" max="64" value="12" aria-label="Длина пароля от 1 до 64">
+                        <input type="number" id="length" name="length" min="1" max="64" value="12" required>
+                    </div>
+                    <p class="field-hint">От 1 до 64 символов. По умолчанию — 12.</p>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="includeSymbols" name="includeSymbols" checked>
+                    <label for="includeSymbols">
+                        <span class="checkbox-title">Включать специальные символы</span>
+                        <span class="field-hint">Например: ! @ # $ % &amp; *</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="button button-primary generate-button">Создать пароль</button>
+            </form>
+
+            <section class="result-panel" aria-labelledby="result-title">
+                <div class="result-heading">
+                    <h3 id="result-title">Твой пароль</h3>
+                    <span class="result-badge" id="resultBadge">Ожидание</span>
+                </div>
+                <output id="passwordOutput" class="password-output" aria-live="polite">Нажми «Создать пароль»</output>
+                <div class="result-actions">
+                    <button type="button" id="copyButton" class="button button-secondary" disabled>Копировать</button>
+                    <button type="button" id="regenerateButton" class="button button-secondary" disabled>Создать ещё</button>
+                </div>
+                <p id="statusMessage" class="status-message" role="status"></p>
+            </section>
+        </section>
+
+        <section class="info-grid" aria-label="Информация о генераторе">
+            <article class="info-card">
+                <span class="info-number">01</span>
+                <h3>Гибкие настройки</h3>
+                <p>Выбирай длину пароля от 1 до 64 символов и управляй специальными символами.</p>
+            </article>
+            <article class="info-card">
+                <span class="info-number">02</span>
+                <h3>Криптографическая случайность</h3>
+                <p>Сервер использует встроенный модуль Node.js <code>crypto</code> для выбора символов.</p>
+            </article>
+            <article class="info-card">
+                <span class="info-number">03</span>
+                <h3>Работа офлайн</h3>
+                <p>После загрузки приложение можно открыть без сети. В таком режиме пароль создаётся на устройстве.</p>
+            </article>
+        </section>
+
+        <section class="api-note">
+            <h2>Проверка API</h2>
+            <p>Сервер предоставляет JSON-маршруты для получения пароля и проверки состояния.</p>
+            <code>GET /api/password?length=16&amp;includeSymbols=true</code>
+            <code>GET /api/status</code>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Коциенко Илья Игоревич · Группа 932401</p>
+        <p>Web-технологии · Лабораторная работа №6</p>
+    </footer>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6f4e37">
+    <meta name="description" content="Описание лабораторной работы №6 по Node.js, Express и PWA.">
+    <title>О работе | ЛР №6</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icons/icon-192.png" type="image/png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div>
+                <p class="eyebrow">Лабораторная работа №6 · Вариант 10</p>
+                <h1>О работе</h1>
+                <p class="header-description">Node.js, Express и Progressive Web App.</p>
+            </div>
+            <button type="button" id="themeToggle" class="button button-secondary theme-button">Тёмная тема</button>
+        </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Основная навигация">
+        <a href="/">Генератор</a>
+        <a class="active" href="/about">О работе</a>
+    </nav>
+
+    <main class="page-content about-content">
+        <section class="generator-card">
+            <p class="eyebrow">Автор</p>
+            <h2>Коциенко Илья Игоревич</h2>
+            <p>Группа: 932401</p>
+            <p>Вариант 10 — «Генератор паролей».</p>
+        </section>
+
+        <section class="generator-card">
+            <p class="eyebrow">Цель работы</p>
+            <h2>Что реализовано</h2>
+            <ul class="feature-list">
+                <li>Инициализирован проект Node.js и установлен Express.</li>
+                <li>Созданы маршруты главной страницы и страницы «О работе».</li>
+                <li>Добавлен API генерации пароля с query-параметрами и проверкой длины.</li>
+                <li>Добавлен маршрут состояния сервера, возвращающий JSON.</li>
+                <li>Созданы манифест PWA, иконки и Service Worker.</li>
+                <li>Добавлен локальный режим генерации, чтобы интерфейс оставался рабочим без сети.</li>
+            </ul>
+        </section>
+
+        <section class="generator-card">
+            <p class="eyebrow">Маршруты сервера</p>
+            <h2>Доступные адреса</h2>
+            <div class="route-list">
+                <div><code>GET /</code><span>Главная страница с генератором.</span></div>
+                <div><code>GET /about</code><span>Страница с информацией о лабораторной работе.</span></div>
+                <div><code>GET /api/status</code><span>JSON с состоянием сервера.</span></div>
+                <div><code>GET /api/password</code><span>Генератор с параметрами <code>length</code> и <code>includeSymbols</code>.</span></div>
+                <div><code>GET /api/password/:length</code><span>Дополнительный пример параметра маршрута.</span></div>
+            </div>
+            <p class="field-hint">Пример: <code>/api/password?length=16&amp;includeSymbols=true</code></p>
+        </section>
+
+        <p class="back-link"><a class="button button-primary" href="/">Вернуться к генератору</a></p>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Коциенко Илья Игоревич · Группа 932401</p>
+        <p>Web-технологии · Лабораторная работа №6</p>
+    </footer>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

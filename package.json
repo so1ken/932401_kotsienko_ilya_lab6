@@ -1,0 +1,21 @@
+{
+  "name": "932401-kotsienko-ilya-lab6",
+  "version": "1.0.0",
+  "description": "Лабораторная работа №6 по Web-технологиям: генератор паролей на Express с поддержкой PWA",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "web-technologies",
+    "express",
+    "pwa",
+    "password-generator"
+  ],
+  "author": "Коциенко Илья Игоревич",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
